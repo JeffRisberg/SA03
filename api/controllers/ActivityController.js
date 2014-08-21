@@ -26,7 +26,9 @@ module.exports = {
     },
 
     create: function (req, res) {
-        Activity.create({name: "Dog Walking", type: "Physical", points: 5}, 
+        Activity.create({name: req.param("name"), 
+                         type: req.param("type"), 
+                         points: req.param("points")}, 
           function(err, activity) {
 
             res.redirect("/activity");
