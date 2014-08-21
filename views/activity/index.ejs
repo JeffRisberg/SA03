@@ -17,4 +17,17 @@
 <% } %>
 </table>
 
+<form action="/activity/create">
+  Type:
+  <input type="text" name="type" id="type" />
+  <br/>
+  Name:
+  <input type="text" name="name" id="name" />
+  <br/>
+  Points:
+  <input type="text" name="points" id="points" />
+  <br/>
+  <input type="submit" name="Submit"/>
+  <br/>
 <%- link_to("Add Another", '/activity/create', {class: "btn btn-default"}) %>
+</form>
