@@ -1,0 +1,22 @@
+<h2>Activity Create</h2>
+
+<form action="/activity/save">
+<table class="table" style="width: 300px">
+  <tr>
+    <td>Type:</td>
+    <td><input type="text" name="type" value="<%= activity.type %>" /></td>
+  </tr>
+  <tr>
+    <td>Name:</td>
+    <td><input type="text" name="name" value="<%= activity.name %>" /></td>
+  </tr>
+  <tr>
+    <td>Points:</td>
+    <td><input type="text" name="points" value="<%= activity.points %>" /></td>
+  </tr>
+  <tr>
+    <td><input type="submit"></td>
+  </tr>
+</table>
+</form>
+
