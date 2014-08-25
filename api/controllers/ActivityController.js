@@ -16,7 +16,7 @@ module.exports = {
 
         Activity.findOne(id, function(err, activity) {
             if (activity === undefined) return res.notFound();
-            res.view({activity, activity});
+            res.view({activity: activity});
         });
     },
 
@@ -44,7 +44,7 @@ module.exports = {
         });
     },
 
-    update : function (req, res) {
+    update: function (req, res) {
     },
 
     delete: function (req, res) {
