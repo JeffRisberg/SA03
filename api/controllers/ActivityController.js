@@ -21,18 +21,18 @@ module.exports = {
     },
 
     create: function (req, res) {
-      var activity = new Activity();
-      res.view({activity: activity});
-    },
+      if (req.method=="POST" && req.param("Activity", null) != null) {
+        Activity.create(req.param("Activity")).done(function (err, model) {
 
-    save: function (req, res) {
-        Activity.create({name: req.param("name"), 
-                         type: req.param("type"), 
-                         points: req.param("points")}, 
-          function(err, activity) {
-
+          if (err) {
+            res.send("Error something went wrong");
+          } else {
             res.redirect("/activity");
+          } 
         });
+      else {
+        res.render('activity/create');
+      }
     },
 
     edit: function (req, res) {
@@ -45,8 +45,37 @@ module.exports = {
     },
 
     update: function (req, res) {
+      var id = req.param('id', null);
+    
+      Person.findOne(id).done(function(err, model) {
+            
+        if (req.method = "POST" && req.param('Activity', null) != null) {
+          var p = req.param('Activity', null);
+                      
+          model.name = p.name;
+          model.type = p.type;
+          model.points = p.points;
+                  
+          model.save(function (err) {                    
+            if (err) {
+              res.send("Error");
+            } else {                      
+              res.redirect("activity/view/" + model.id);                      
+            }                                        
+          });               
+        } else {                  
+          res.render('activity/update', {model: model});
+        }                
+      });           
     },
 
     delete: function (req, res) {
+      var id = req.param('id', null);
+
+      Activity.findOne(id).done(function(err, activity) {
+        activity.destroy(function (error) {
+          res.redirect('activity/');
+        });
+      });          
     }     
 };

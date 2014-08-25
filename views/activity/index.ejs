@@ -12,7 +12,7 @@
 <% for (var i = 0; i < activities.length; i++) { %>
   <tr>
     <td>
-      <%- link_to(activities[i].name, '/activity/edit/'+activities[i].id) %>
+      <%- link_to(activities[i].name, '/activity/view/'+activities[i].id) %>
     </td>
     <td><%= activities[i].type %></td>
     <td><%= activities[i].points %></td>
