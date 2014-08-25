@@ -30,7 +30,7 @@ module.exports = {
             res.redirect("/activity");
           } 
         });
-      else {
+      } else {
         res.render('activity/create');
       }
     },
