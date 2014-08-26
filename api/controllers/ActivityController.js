@@ -69,7 +69,8 @@ module.exports = {
         if (activity === undefined) return res.notFound();
 
         activity.destroy(function (error) {
-        res.redirect('/activity/index');       
+          res.redirect('/activity/index');       
+        });
       });          
     }     
 };
