@@ -39,7 +39,7 @@ module.exports = {
     update: function (req, res) {
       var id = req.param('id', null);
     
-      Activity.findOne(id).done(function(err, activity) {
+      Activity.findOne({id: id}).done(function(err, activity) {
             
         if (req.method = "POST" && req.param('Activity', null) != null) {
           var p = req.param('Activity', null);
@@ -64,7 +64,7 @@ module.exports = {
     delete: function (req, res) {
       var id = req.param('id', null);
 
-      Activity.findOne(id).done(function(err, activity) {
+      Activity.findOne({id: id}).done(function(err, activity) {
         activity.destroy(function (error) {
           res.redirect('/activity/index');
         });
