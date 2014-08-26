@@ -32,7 +32,7 @@ module.exports = {
           } 
         });
       } else {
-        res.render('activity/create');
+        res.view();
       }
     },
 
@@ -57,7 +57,7 @@ module.exports = {
             }                                        
           });               
         } else {                  
-          res.render('activity/update', {activity: activity});
+          res.view({activity: activity});
         }                
       });           
     },
