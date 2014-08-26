@@ -17,7 +17,7 @@
     <td><%= activities[i].type %></td>
     <td><%= activities[i].points %></td>
     <td>
-      <%- link_to("Edit", '/activity/edit/'+activities[i].id) %>
+      <%- link_to("Edit", '/activity/update/'+activities[i].id) %>
       <%- link_to("Delete", '/activity/delete/'+activities[i].id) %>
     </td>
   </tr>

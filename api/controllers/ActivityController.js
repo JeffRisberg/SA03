@@ -16,18 +16,19 @@ module.exports = {
 
         Activity.findOne(id, function(err, activity) {
             if (activity === undefined) return res.notFound();
+
             res.view({activity: activity});
         });
     },
 
     create: function (req, res) {
-      if (req.method=="POST" && req.param("Activity", null) != null) {
+      if (req.method == "POST" && req.param("Activity", null) != null) {
         Activity.create(req.param("Activity")).done(function (err, model) {
 
           if (err) {
             res.send("Error something went wrong");
           } else {
-            res.redirect("/activity");
+            res.redirect("/activity/index");
           } 
         });
       } else {
@@ -35,36 +36,27 @@ module.exports = {
       }
     },
 
-    edit: function (req, res) {
-        var id = req.param("id", null);
-  
-        Activity.findOne(id, function(err, activity) {
-            if (activity === undefined) return res.notFound();
-            res.view({activity: activity});
-        });
-    },
-
     update: function (req, res) {
       var id = req.param('id', null);
     
-      Person.findOne(id).done(function(err, model) {
+      Activity.findOne(id).done(function(err, activity) {
             
         if (req.method = "POST" && req.param('Activity', null) != null) {
           var p = req.param('Activity', null);
                       
-          model.name = p.name;
-          model.type = p.type;
-          model.points = p.points;
+          activity.name = p.name;
+          activity.type = p.type;
+          activity.points = p.points;
                   
-          model.save(function (err) {                    
+          activity.save(function (err) {                    
             if (err) {
               res.send("Error");
             } else {                      
-              res.redirect("activity/view/" + model.id);                      
+              res.redirect("/activity/view/" + activity.id);
             }                                        
           });               
         } else {                  
-          res.render('activity/update', {model: model});
+          res.render('activity/update', {activity: activity});
         }                
       });           
     },
@@ -74,7 +66,7 @@ module.exports = {
 
       Activity.findOne(id).done(function(err, activity) {
         activity.destroy(function (error) {
-          res.redirect('activity/');
+          res.redirect('/activity/index');
         });
       });          
     }     
