@@ -1,0 +1,15 @@
+<h2>Challenges List</h2>
+
+<table class="table" style="width: 600px">
+  <tr>
+    <th>Name</th>
+    <th>Players</th>
+  </tr>
+<% for (var i = 0; i < challenges.length; i++) { %>
+  <tr>
+    <td><%= challenges[i].name %></td>
+    <td><%= challenges[i].numPlayers %></td>
+  </tr>
+<% } %>
+</table>
+
