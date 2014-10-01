@@ -18,8 +18,6 @@
 ################################################
 
 
-
-
 ################################################
 # Local Configuration
 #
@@ -69,9 +67,6 @@ config/local.js
 node_modules
 bower_components
 
-
-
-
 ################################################
 # Sails.js / Waterline / Grunt
 #
@@ -98,10 +93,6 @@ lib-cov
 *.pid
 npm-debug.log
 
-
-
-
-
 ################################################
 # Miscellaneous
 #
@@ -112,7 +103,10 @@ npm-debug.log
 *~
 *#
 .DS_STORE
-.netbeans
-nbproject
-.idea
 .node_history
+
+public/libs
+
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/libraries
