@@ -1,6 +1,6 @@
 module.exports = {
     index: function (req, res) {
-        Challenge.find({}).exec(function (err, activities) {
+        Challenge.find({}).exec(function (err, challenges) {
             if (err) {
                 console.log(err);
                 sails.log.error("-----------err", err);
@@ -8,7 +8,7 @@ module.exports = {
                 return;
             }
 
-            res.view({activities: activities});
+            res.view({challenges: challenges});
         });
     },
 
@@ -24,6 +24,13 @@ module.exports = {
 
     create: function (req, res) {
         if (req.method == "POST" && req.param("Challenge", null) != null) {
+            if (req.param("Challenge")["active"] != undefined) {
+                req.param("Challenge")["active"] = true;
+            }
+            else {
+                req.param("Challenge")["active"] = false;
+            }
+
             Challenge.create(req.param("Challenge"), function (err, model) {
 
                 if (err) {
@@ -44,11 +51,20 @@ module.exports = {
             if (challenge === undefined) return res.notFound();
 
             if (req.method = "POST" && req.param('Challenge', null) != null) {
+                if (req.param("Challenge")["active"] != undefined) {
+                    req.param("Challenge")["active"] = true;
+                }
+                else {
+                    req.param("Challenge")["active"] = false;
+                }
+
                 var p = req.param('Challenge', null);
 
                 challenge.name = p.name;
-                challenge.type = p.type;
-                challenge.points = p.points;
+                challenge.description = p.description;
+                challenge.startDate = p.startDate;
+                challenge.endDate = p.endDate;
+                challenge.active = p.active;
 
                 challenge.save(function (err) {
                     if (err) {

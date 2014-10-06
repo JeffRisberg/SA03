@@ -13,10 +13,14 @@
     <td>Start Date:</td>
     <td><%= challenge.startDate %></td>
   </tr>
-   <tr>
-      <td>End Date:</td>
-      <td><%= challenge.endDate %></td>
-    </tr>
+  <tr>
+    <td>End Date:</td>
+    <td><%= challenge.endDate %></td>
+  </tr>
+  <tr>
+    <td>Active:</td>
+    <td><%= challenge.active %></td>
+  </tr>
 </table>
 
 <%- link_to("Back", '/challenge', {class: "btn btn-default"}) %>

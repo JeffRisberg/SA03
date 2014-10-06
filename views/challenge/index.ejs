@@ -8,17 +8,18 @@
     <th>Description</th>
     <th>Start Date</th>
     <th>End Date</th>
+    <th>Active</th>
     <th>&nbsp;</th>
   </tr>
 <% for (var i = 0; i < challenges.length; i++) { %>
   <tr>
     <td>
-      <%- link_to(challenges[i].name, '/activity/view/'+challenges[i].id) %>
+      <%- link_to(challenges[i].name, '/challenge/view/'+challenges[i].id) %>
     </td>
-    <td><%= challenges[i].type %></td>
     <td><%= challenges[i].description %></td>
-     <td><%= challenges[i].startDate %></td>
-      <td><%= challenges[i].endDate %></td>
+    <td><%= challenges[i].startDate %></td>
+    <td><%= challenges[i].endDate %></td>
+    <td><%= challenges[i].active %></td>
     <td>
       <%- link_to("Edit", '/challenge/update/'+challenges[i].id) %>
       <%- link_to("Delete", '/challenge/delete/'+challenges[i].id) %>

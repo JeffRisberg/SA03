@@ -1,7 +1,7 @@
 /**
  * Challenge.js
  *
- * @description :: each Activity has id, name, points
+ * @description :: each Challenge has id, name, description, etc.
  * @docs        :: http://sailsjs.org/#!documentation/models
  */
 
@@ -23,10 +23,15 @@ module.exports = {
             "maxLength": 20
         },
         "startDate": {
-            "type": "date"
+            "type": "date",
+            "columnName": "start_date"
         },
         "endDate": {
-            "type": "date"
+            "type": "date",
+            "columnName": "end_date"
+        },
+        "active": {
+            "type": "boolean"
         }
     }
 };
