@@ -1,0 +1,23 @@
+<h2>Challenge Detail</h2>
+
+<table class="table" style="width: 300px">
+  <tr>
+    <td>Name:</td>
+    <td><%= challenge.name %></td>
+  </tr>
+  <tr>
+    <td>Description:</td>
+    <td><%= challenge.description %></td>
+  </tr>
+  <tr>
+    <td>Start Date:</td>
+    <td><%= challenge.startDate %></td>
+  </tr>
+   <tr>
+      <td>End Date:</td>
+      <td><%= challenge.endDate %></td>
+    </tr>
+</table>
+
+<%- link_to("Back", '/challenge', {class: "btn btn-default"}) %>
+

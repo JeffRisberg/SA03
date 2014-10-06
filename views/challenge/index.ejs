@@ -1,15 +1,28 @@
 <h2>Challenges List</h2>
 
+<%- link_to("Create New", '/challenge/create', {class: 'btn btn-default'}) %>
+
 <table class="table" style="width: 600px">
   <tr>
     <th>Name</th>
-    <th>Players</th>
+    <th>Description</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>&nbsp;</th>
   </tr>
 <% for (var i = 0; i < challenges.length; i++) { %>
   <tr>
-    <td><%= challenges[i].name %></td>
-    <td><%= challenges[i].numPlayers %></td>
+    <td>
+      <%- link_to(challenges[i].name, '/activity/view/'+challenges[i].id) %>
+    </td>
+    <td><%= challenges[i].type %></td>
+    <td><%= challenges[i].description %></td>
+     <td><%= challenges[i].startDate %></td>
+      <td><%= challenges[i].endDate %></td>
+    <td>
+      <%- link_to("Edit", '/challenge/update/'+challenges[i].id) %>
+      <%- link_to("Delete", '/challenge/delete/'+challenges[i].id) %>
+    </td>
   </tr>
 <% } %>
 </table>
-
