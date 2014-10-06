@@ -6,6 +6,7 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
+    <th>Activity</th>
     <th>Start Date</th>
     <th>End Date</th>
     <th>Active</th>
@@ -17,6 +18,7 @@
       <%- link_to(challenges[i].name, '/challenge/view/'+challenges[i].id) %>
     </td>
     <td><%= challenges[i].description %></td>
+    <td><%= challenges[i].activity %></td>
     <td><%= challenges[i].startDate %></td>
     <td><%= challenges[i].endDate %></td>
     <td><%= challenges[i].active %></td>

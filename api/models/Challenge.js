@@ -22,6 +22,9 @@ module.exports = {
             "type": "string",
             "maxLength": 20
         },
+        activity: {
+            model: 'activity'
+        },
         "startDate": {
             "type": "date",
             "columnName": "start_date"

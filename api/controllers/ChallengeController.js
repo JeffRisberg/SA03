@@ -18,7 +18,11 @@ module.exports = {
         Challenge.findOne(id, function (err, challenge) {
             if (challenge === undefined) return res.notFound();
 
-            res.view({challenge: challenge});
+            var activity = Activity.findOne(challenge.activity, function (err, activity) {
+                if (activity === undefined) return res.notFound();
+
+                res.view({challenge: challenge, activity: activity});
+            });
         });
     },
 
@@ -30,6 +34,8 @@ module.exports = {
             else {
                 req.param("Challenge")["active"] = false;
             }
+
+            req.param("Challenge")["activity"] = 1;
 
             Challenge.create(req.param("Challenge"), function (err, model) {
 
