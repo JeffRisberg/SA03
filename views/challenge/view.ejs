@@ -1,6 +1,6 @@
 <h2>Challenge Detail</h2>
 
-<table class="table" style="width: 300px">
+<table class="table" style="width: 800px">
   <tr>
     <td>Name:</td>
     <td><%= challenge.name %></td>
@@ -11,15 +11,15 @@
   </tr>
   <tr>
     <td>Activity:</td>
-    <td><%= activity.name %></td>
+    <td><%= challenge.activity.name %></td>
   </tr>
   <tr>
     <td>Start Date:</td>
-    <td><%= challenge.startDate %></td>
+    <td><%= challenge.startDate.toISOString().substring(0, 10) %></td>
   </tr>
   <tr>
     <td>End Date:</td>
-    <td><%= challenge.endDate %></td>
+    <td><%= challenge.endDate.toISOString().substring(0, 10) %></td>
   </tr>
   <tr>
     <td>Active:</td>

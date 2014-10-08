@@ -12,11 +12,11 @@
   </tr>
   <tr>
     <td>Start Date:</td>
-    <td><input type="text" name="Challenge[startDate]" value="<%= challenge.startDate %>" /></td>
+    <td><input type="text" name="Challenge[startDate]" value="<%= challenge.startDate.toISOString().substring(0, 10) %>" /></td>
   </tr>
   <tr>
     <td>End Date:</td>
-    <td><input type="text" name="Challenge[endDate]" value="<%= challenge.endDate %>" /></td>
+    <td><input type="text" name="Challenge[endDate]" value="<%= challenge.endDate.toISOString().substring(0, 10) %>" /></td>
   </tr>
   <tr>
     <td>Active:</td>

@@ -1,6 +1,6 @@
 module.exports = {
     index: function (req, res) {
-        Challenge.find({}).exec(function (err, challenges) {
+        Challenge.find({}).populate('activity').exec(function (err, challenges) {
             if (err) {
                 console.log(err);
                 sails.log.error("-----------err", err);
@@ -15,14 +15,10 @@ module.exports = {
     view: function (req, res) {
         var id = req.param("id", null);
 
-        Challenge.findOne(id, function (err, challenge) {
+        Challenge.findOne(id).populate('activity').exec(function (err, challenge) {
             if (challenge === undefined) return res.notFound();
 
-            var activity = Activity.findOne(challenge.activity, function (err, activity) {
-                if (activity === undefined) return res.notFound();
-
-                res.view({challenge: challenge, activity: activity});
-            });
+            res.view({challenge: challenge});
         });
     },
 
